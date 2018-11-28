@@ -30,7 +30,17 @@
 */
 
 //Code Here
-
+class Employee {
+  constructor(first_name, last_name, email, age){
+  this.first_name = first_name
+  this.last_name = last_name
+  this.email = email
+  this. age = age
+  }
+  makeWidget (){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -50,7 +60,24 @@
 */
 
 //Code Here
-
+class Manager {
+  constructor(first_name, last_name, email, age, reports){
+  this.first_name = first_name
+  this.last_name = last_name
+  this.email = email
+  this. age = age
+  this.reports = []
+  }
+  makeWidget (){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+  hire (newEmp){
+    this.reports.push(newEmp)
+  }
+  fire (empIdx) {
+    this.reports.splice(empIdx,1)
+  }
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -76,7 +103,43 @@
 */
 
 //Code Here
-
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age, reports, title, bonus){
+  this.first_name = first_name
+  this.last_name = last_name
+  this.email = email
+  this. age = age
+  this.reports = []
+  this.title = "Not a manager"
+  this.bonus = 0
+  }
+  makeWidget (){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+  hire (newEmp){
+    this.reports.push(newEmp)
+    this.hireFire()
+  }
+  fire (empIdx) {
+    this.reports.splice(empIdx,1)
+    this.bonus+= 100
+    this.hireFire()
+  }
+  hireFire (){
+    let numReports = this.reports.length
+    if(numReports >= 1 && numReports <= 3){
+      this.title = "Barely Manager"
+    }else if(numReports >= 4 && numReports <= 10){
+      this.title = "Mostly Manager"
+    }else if(numReports >= 11 && numReports <= 50){
+      this.title = "Manager"
+    }else if(numReports >= 51 && numReports <= 100){
+      this.title = "Manager Plus"
+    }else if(numReports >= 101){
+      this.title = "Bestest Manager"
+    }
+  }
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
