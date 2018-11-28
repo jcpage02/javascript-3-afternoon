@@ -22,7 +22,10 @@ var carDetails = {
 */
 
 //Code Here
-
+let { color } = carDetails
+let { make } = carDetails
+let { model } = carDetails
+let { year } = carDetails
 
 
 ////////// PROBLEM 2 //////////
@@ -33,9 +36,11 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+function greeting(obj) {
   //Code Here
-  
+  let { firstName } = obj
+  let { lastName } = obj
+  let { title } = obj
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -54,7 +59,10 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+let totalPopulation = (obj) => {
+  let { utah, california, texas, arizona } = obj
+  return utah + california + texas + arizona
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -68,7 +76,11 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+let ingredients = (obj) => {
+  let { carb, fat, protein } = obj
+  let arr = [carb, fat, protein]
+  return arr
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -86,7 +98,9 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+let largeNumbers = ({ first, second, third }) => {
+  return Math.min(first, second, third)
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -98,5 +112,15 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+let numberGroups = ({a, b, c}) => {
+  let longest = []
+  if(a.length > b.length && a.length > c.length){
+    longest = a
+  } else if(b.length > a.length && b.length > c.length){
+    longest = b
+  } else {
+    longest = c
+  }
+  return longest
+}
 
