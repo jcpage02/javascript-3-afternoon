@@ -31,13 +31,13 @@
 
 //Code Here
 class Employee {
-  constructor(first_name, last_name, email, age){
-  this.first_name = first_name
-  this.last_name = last_name
-  this.email = email
-  this. age = age
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
   }
-  makeWidget (){
+  makeWidget() {
     return `${this.first_name} ${this.last_name} Widget`
   }
 }
@@ -61,21 +61,21 @@ class Employee {
 
 //Code Here
 class Manager {
-  constructor(first_name, last_name, email, age, reports){
-  this.first_name = first_name
-  this.last_name = last_name
-  this.email = email
-  this. age = age
-  this.reports = []
+  constructor(first_name, last_name, email, age, reports) {
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
   }
-  makeWidget (){
+  makeWidget() {
     return `${this.first_name} ${this.last_name} Widget`
   }
-  hire (newEmp){
+  hire(newEmp) {
     this.reports.push(newEmp)
   }
-  fire (empIdx) {
-    this.reports.splice(empIdx,1)
+  fire(empIdx) {
+    this.reports.splice(empIdx, 1)
   }
 }
 
@@ -104,38 +104,38 @@ class Manager {
 
 //Code Here
 class ProgressiveManager {
-  constructor(first_name, last_name, email, age, reports, title, bonus){
-  this.first_name = first_name
-  this.last_name = last_name
-  this.email = email
-  this. age = age
-  this.reports = []
-  this.title = "Not a manager"
-  this.bonus = 0
+  constructor(first_name, last_name, email, age, reports, title, bonus) {
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+    this.title = "Not a manager"
+    this.bonus = 0
   }
-  makeWidget (){
+  makeWidget() {
     return `${this.first_name} ${this.last_name} Widget`
   }
-  hire (newEmp){
+  hire(newEmp) {
     this.reports.push(newEmp)
     this.hireFire()
   }
-  fire (empIdx) {
-    this.reports.splice(empIdx,1)
-    this.bonus+= 100
+  fire(empIdx) {
+    this.reports.splice(empIdx, 1)
+    this.bonus += 100
     this.hireFire()
   }
-  hireFire (){
+  hireFire() {
     let numReports = this.reports.length
-    if(numReports >= 1 && numReports <= 3){
+    if (numReports >= 1 && numReports <= 3) {
       this.title = "Barely Manager"
-    }else if(numReports >= 4 && numReports <= 10){
+    } else if (numReports >= 4 && numReports <= 10) {
       this.title = "Mostly Manager"
-    }else if(numReports >= 11 && numReports <= 50){
+    } else if (numReports >= 11 && numReports <= 50) {
       this.title = "Manager"
-    }else if(numReports >= 51 && numReports <= 100){
+    } else if (numReports >= 51 && numReports <= 100) {
       this.title = "Manager Plus"
-    }else if(numReports >= 101){
+    } else if (numReports >= 101) {
       this.title = "Bestest Manager"
     }
   }
@@ -166,5 +166,24 @@ class ProgressiveManager {
 */
 
 //Code Here
-
+class Machine {
+  constructor(widgets_made_count, wear_and_tear_count, needs_reboot) {
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false
+  }
+  makeWidgets (num) {
+    this.widgets_made_count += num
+    this.wear_and_tear_count += Math.floor(num/50) * 1
+  }
+  fixMachine () {
+    this.needs_reboot = true
+  }
+  reboot () {
+    return () => {
+      this.wear_and_tear_count -= 10 
+      this.needs_reboot = false
+    }
+  }
+}
 
