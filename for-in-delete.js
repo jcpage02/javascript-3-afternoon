@@ -131,7 +131,10 @@ let secrets = (obj) => {
 */
 
 //Code Here
-
+let removePassword = (obj) => {
+  delete obj.password
+  return obj
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -150,7 +153,9 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+for(let key in deleteTheBigNumbers){
+  deleteTheBigNumbers[key] > 100 ? delete deleteTheBigNumbers[key] : null
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -163,7 +168,12 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+let startsWithK = (obj) => {
+  for(let key in obj){
+    key.startsWith("k") ? delete obj[key] : null
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -178,5 +188,10 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+let hiddenTreasure = (obj) => {
+  for(let key in obj){
+    !obj[key].includes("treasure") ? delete obj[key] : null
+  }
+  return obj
+}
 
