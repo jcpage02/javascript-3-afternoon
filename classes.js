@@ -167,7 +167,7 @@ class ProgressiveManager {
 
 //Code Here
 class Machine {
-  constructor(widgets_made_count, wear_and_tear_count, needs_reboot) {
+  constructor() {
     this.widgets_made_count = 0
     this.wear_and_tear_count = 0
     this.needs_reboot = false
